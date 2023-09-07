@@ -28,4 +28,9 @@ export class TaskComponent {
     task.reminder = !task.reminder
     this.taskService.toggleReminder(task).subscribe()
   }
+
+  addTask(task: Task) {
+    console.log('new Task', task)
+    this.taskService.addTask(task).subscribe(task => (this.tasks.push(task)))
+  }
 }
