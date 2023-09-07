@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { Task } from '../../Task';
-import { TASKS } from '../../mock-tasks'
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -31,6 +30,8 @@ export class TaskComponent {
 
   addTask(task: Task) {
     console.log('new Task', task)
-    this.taskService.addTask(task).subscribe(task => (this.tasks.push(task)))
+    this.taskService.addTask(task).subscribe(task => {
+      this.tasks.push(task)
+    })
   }
 }
